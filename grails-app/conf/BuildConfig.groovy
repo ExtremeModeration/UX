@@ -57,7 +57,7 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.55"
 
         // plugins for the compile step
-        compile ":asset-pipeline:1.9.6"
+        compile ":asset-pipeline:1.9.9"
         compile ":rest-client-builder:2.0.3"
 
         // plugins needed at runtime but not for compilation
