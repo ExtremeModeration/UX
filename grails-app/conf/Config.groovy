@@ -87,9 +87,11 @@ grails.hibernate.osiv.readonly = false
 
 environments {
     development {
+        api.endpoint = 'http://localhost:8090'
         grails.logging.jul.usebridge = true
     }
     production {
+        api.endpoint = 'http://api.extrememoderation.tv'
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
