@@ -7,7 +7,24 @@
 * You're free to add application-wide styles to this file and they'll appear at the top of the
 * compiled file, but it's generally better to create a new file per style scope.
 *
-*= require main
-*= require mobile
+*= require bootstrap.min
+*= require bootstrap-theme.min
 *= require_self
 */
+
+body {
+	padding-top: 50px;
+}
+
+.btn-twitch {
+	/*background-color: rgba(100, 65, 165, 0.75);*/
+	background: url(../images/twitch-login-btn.png) no-repeat;
+	width: 170px;
+	height: 32px;
+	margin-top: 9px;
+	opacity: 0.75;
+}
+
+.btn-twitch:hover {
+	opacity: 1;
+}

@@ -1,5 +1,6 @@
 package tv.extrememoderation.sec
 
+import grails.plugins.rest.client.RestBuilder
 import tv.extrememoderation.util.JSONUtil
 
 class UserService {
@@ -7,9 +8,18 @@ class UserService {
     def grailsApplication
 
     User getUserByUsername(String username) {
-        def data = JSONUtil.get "/users/search/findByUsername?username=$username"
-        data = data._embedded.users[0]
-        def id = data._links.self.href.split('/')[-1]
-        new User(username: data.username, email: data.email, token: data.token, id: id)
+        def data = JSONUtil.get "/users/$username"
+        if (!data) return null
+        new User(username: data.username, email: data.email, id: data.id, displayName: data.displayName)
+    }
+
+    User createUser(User user) {
+    	def data = new RestBuilder().post("${grailsApplication.config.api.endpoint}/users") {
+    		contentType 'application/json'
+    		json([username: user.username, email: user.email, displayName: user.displayName])
+    	}
+        data = data.json
+        println data
+    	new User(username: data.username, email: data.email, id: data.id, displayName: data.displayName)
     }
 }

@@ -2,14 +2,16 @@
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
 
-// grails.config.locations = [ "classpath:${appName}-config.properties",
-//                             "classpath:${appName}-config.groovy",
-//                             "file:${userHome}/.grails/${appName}-config.properties",
-//                             "file:${userHome}/.grails/${appName}-config.groovy"]
+grails.config.locations = [ "classpath:${appName}-config.properties",
+                            "classpath:${appName}-config.groovy",
+                            "file:${userHome}/.grails/${appName}-config.properties",
+                            "file:${userHome}/.grails/${appName}-config.groovy"]
 
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
+
+grails.app.context='/'
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
@@ -85,17 +87,27 @@ grails.hibernate.pass.readonly = false
 // configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
 grails.hibernate.osiv.readonly = false
 
+twitch {
+    client {
+        id = 'REPLACE-WITH-REAL-CLIENT-ID'
+    }
+}
+
 environments {
     development {
         api.endpoint = 'http://localhost:8090'
         grails.logging.jul.usebridge = true
+        grails.plugin.cookiesession.enabled = true
     }
     production {
         api.endpoint = 'http://api.extrememoderation.tv'
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.plugin.cookiesession.enabled = true
+        grails.serverURL = "http://extrememoderation.tv"
     }
 }
+
+grails.plugin.cookiesession.secret = 'ExMoAllOverYourFace' // TODO: Change this before going to production!
 
 // log4j configuration
 log4j.main = {

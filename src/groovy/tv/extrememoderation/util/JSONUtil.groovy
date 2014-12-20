@@ -11,7 +11,11 @@ class JSONUtil {
     static String ENDPOINT
 
     static JSONElement get(String uri) {
-        def data = new RestBuilder().get("${ENDPOINT}${uri}").json
+        new RestBuilder().get("${ENDPOINT}${uri}").json
+    }
+
+    static def post(String uri, Map body) {
+    	new RestBuilder().post("${ENDPOINT}${uri}", body)
     }
 
 }
