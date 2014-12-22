@@ -7,6 +7,7 @@ class BlogService {
     def grailsApplication
 
     def listBlogs(int page = 1, int size = 5) {
+        log.info 'Listing blogs!'
         String url = "${grailsApplication.config.api.endpoint}/blogs?page=${page-1}&size=$size&sort=createdAt,desc"
         new RestBuilder().get(url)?.json
     }
