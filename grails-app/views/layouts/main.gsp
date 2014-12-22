@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <g:set var="faviconPath" value="${asset.assetPath(src: 'favicon.ico')}" />
+    <link rel="shortcut icon" href="${faviconPath}" type="image/x-icon">
+    <link rel="icon" href="${faviconPath}" type="image/x-icon">
+
     <title><g:layoutTitle default="" /> - ExtremeModeration.tv</title>
 
     <asset:stylesheet src="application" />
