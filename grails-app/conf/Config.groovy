@@ -88,20 +88,16 @@ grails.hibernate.pass.readonly = false
 // configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
 grails.hibernate.osiv.readonly = false
 
-twitch {
-    client {
-        id = 'REPLACE-WITH-REAL-CLIENT-ID'
-    }
-}
-
 environments {
     development {
         api.endpoint = 'http://localhost:8090'
+        twitch.client.id = 'rifk3d0r9wyfutpstcgdeexslirhnci' // Dev only client id (localhost:8080)
         grails.logging.jul.usebridge = true
         grails.plugin.cookiesession.enabled = true
     }
     production {
         api.endpoint = 'http://api.extrememoderation.tv'
+        twitch.client.id = 'e1k3rf6htq6onsfx7t6yjg3sh61eszx' // prod only client id (extrememoderation.tv) you should override this if you launch on your own server
         grails.logging.jul.usebridge = false
         grails.plugin.cookiesession.enabled = true
         grails.serverURL = "http://extrememoderation.tv"
