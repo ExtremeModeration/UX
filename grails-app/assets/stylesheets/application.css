@@ -8,13 +8,54 @@
 * compiled file, but it's generally better to create a new file per style scope.
 *
 *= require bootstrap.min
-*= require bootstrap-theme.min
+*= require bootswatch-cyborg.min
+*= require bootstrap-custom
+*= require neon
 *= require_self
 */
 
 body {
 	padding-top: 50px;
 }
+
+/* navigation neon glow effect */
+
+.neon-red, .neon-red-hover:hover {
+	-webkit-animation: neon-red 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon-red 1.5s ease-in-out infinite alternate;
+	animation: neon-red 1.5s ease-in-out infinite alternate;
+}
+
+.neon-blue, .neon-blue-hover:hover {
+	-webkit-animation: neon-blue 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon-blue 1.5s ease-in-out infinite alternate;
+	animation: neon-blue 1.5s ease-in-out infinite alternate;
+}
+
+.neon-yellow, .neon-yellow-hover:hover {
+	-webkit-animation: neon-yellow 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon-yellow 1.5s ease-in-out infinite alternate;
+	animation: neon-yellow 1.5s ease-in-out infinite alternate;
+}
+
+.neon-green, .neon-green-hover:hover {
+	-webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon-green 1.5s ease-in-out infinite alternate;
+	animation: neon-green 1.5s ease-in-out infinite alternate;
+}
+
+.neon-orange, .neon-orange-hover:hover {
+	-webkit-animation: neon-orange 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon-orange 1.5s ease-in-out infinite alternate;
+	animation: neon-orange 1.5s ease-in-out infinite alternate;
+}
+
+.neon-violet, .neon-violet-hover:hover, .navbar-inverse a:hover {
+	-webkit-animation: neon-violet 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon-violet 1.5s ease-in-out infinite alternate;
+	animation: neon-violet 1.5s ease-in-out infinite alternate;
+}
+
 
 .btn-twitch {
 	/*background-color: rgba(100, 65, 165, 0.75);*/
