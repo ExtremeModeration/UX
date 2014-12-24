@@ -97,14 +97,14 @@ environments {
     }
     production {
         api.endpoint = 'http://api.extrememoderation.tv'
-        twitch.client.id = 'e1k3rf6htq6onsfx7t6yjg3sh61eszx' // prod only client id (extrememoderation.tv) you should override this if you launch on your own server
+        twitch.client.id = 'e1k3rf6htq6onsfx7t6yjg3sh61eszx' // prod only client id (extrememoderation.tv)
         grails.logging.jul.usebridge = false
         grails.plugin.cookiesession.enabled = true
-        grails.serverURL = "http://extrememoderation.tv"
+        grails.serverURL = "http://www.extrememoderation.tv"
     }
 }
 
-grails.plugin.cookiesession.secret = 'ExMoAllOverYourFace' // TODO: Change this before going to production!
+grails.plugin.cookiesession.secret = 'Extr3m3M0d3rati0nTV' // TODO: Change this before going to production!
 
 // log4j configuration
 log4j.main = {
