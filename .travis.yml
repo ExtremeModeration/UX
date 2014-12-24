@@ -10,4 +10,4 @@ deploy:
   password: $CF_PASSWORD
   organization: $CF_ORG
   space: $CF_SPACE
-script: ./grailsw clean && ./grailsw war /target/www.extrememoderation.tv.war
+script: ./grailsw clean && ./grailsw war target/www.extrememoderation.tv.war
