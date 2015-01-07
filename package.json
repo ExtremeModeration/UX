@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "preinstall": "bundle install",
-    "postinstall": "bower install",
+    "postinstall": "bower install && gulp production",
     "start": "node ./bin/www"
   },
   "dependencies": {
