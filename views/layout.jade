@@ -2,6 +2,35 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/stylesheets/style.min.css')
   body
+
+    // start navigation
+    div.navbar.navbar-fixed-top.navbar-inverse
+      div.container
+        div.navbar-header
+          button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#main-navbar', type='button')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') ExtremeModeration
+
+        div#main-navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/blog') Blog
+            li
+              a(href='/forums') Forums
+
+          ul.nav.navbar-nav.navbar-right
+            li
+              img.btn-twitch.twitch-connect(src='http://ttv-api.s3.amazonaws.com/assets/connect_dark.png')
+    // end navigation
+
     block content
+
+    script(src='/javascripts/app.min.js')

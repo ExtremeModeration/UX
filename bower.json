@@ -1,0 +1,25 @@
+{
+  "name": "extrememoderation.tv",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ExtremeModeration/UX",
+  "authors": [
+    "Steve Good <steve@stevegood.org>"
+  ],
+  "description": "The ExtremeModeration.TV front-end",
+  "main": "app.js",
+  "private": true,
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.1"
+  }
+}

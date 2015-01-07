@@ -1,4 +1,4 @@
-language: groovy
+language: node_js
 branches:
   only:
     - master
@@ -10,4 +10,13 @@ deploy:
   password: $CF_PASSWORD
   organization: $CF_ORG
   space: $CF_SPACE
-script: ./grailsw clean && ./grailsw war target/www.extrememoderation.tv.war
+node_js:
+  - "0.10.35"
+notifications:
+  email:
+    recipients:
+      - extrememoderationtv@gmail.com
+before_install:
+  - gem update --system
+  - gem install compass
+script: npm test && gulp production
