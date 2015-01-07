@@ -1,6 +1,28 @@
 extends layout
 
 block content
-  div.container
-    div.page-header
-      h1 ExtremeModeration.TV
+  div.row
+    div.col-xs-12
+      div.alert.alert-info
+        h2 Its a process!
+        p.
+        The site is currently in development mode. For updates check out&nbsp;
+        a.alert-link(href='http://twitch.tv/extrememoderation', target='_blank') ExtremeModeration on Twitch
+        &nbsp;as he builds the site and other application components live.
+
+  div.page-header
+    h1 Welcome!
+
+  // embed twitch stream
+  div.row
+    div.col-md-8
+      iframe(
+        src='http://www.twitch.tv/extrememoderation/embed',
+        frameborder='0', scrolling='no', height='450', width='100%'
+      )
+    div.col-md-4
+      iframe(
+        src='http://www.twitch.tv/extrememoderation/chat?popout=',
+        frameborder='0', scrolling='no', height='450', width='100%'
+      )
+  // end embed twitch stream

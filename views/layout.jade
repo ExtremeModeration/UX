@@ -31,6 +31,23 @@ html
               img.btn-twitch.twitch-connect(src='http://ttv-api.s3.amazonaws.com/assets/connect_dark.png')
     // end navigation
 
-    block content
+    div.container
+      block content
+
+    script.
+      var exmo = exmo || {};
+      exmo.twitch = {
+        client: {
+          id: 'a-random-string-till-i-can-figure-out-how-to-pass-this-value'
+        }
+      };
+      exmo.app = {
+        root: function(){
+          var url = window.location.href,
+              arr = url.split('/');
+          return arr[0] + '//' + arr[2];
+        }()
+      };
 
     script(src='/javascripts/app.min.js')
+    script(src='https://ttv-api.s3.amazonaws.com/twitch.min.js')
