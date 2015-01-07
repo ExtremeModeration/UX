@@ -38,7 +38,7 @@ html
       var exmo = exmo || {};
       exmo.twitch = {
         client: {
-          id: 'a-random-string-till-i-can-figure-out-how-to-pass-this-value'
+          id: '#{process.env.TWITCH_CLIENT_ID || 'rifk3d0r9wyfutpstcgdeexslirhnci'}'
         }
       };
       exmo.app = {
