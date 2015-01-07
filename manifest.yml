@@ -1,8 +1,7 @@
 ---
 applications:
 - name: www.extrememoderation.tv
-  memory: 1G
-  instances: 1
-  path: target/www.extrememoderation.tv.war
+  memory: 256m
+  instances: 2
   services:
   - new_relic
