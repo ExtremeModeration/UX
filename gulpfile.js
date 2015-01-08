@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
-    compass = require('gulp-compass'),
     concat = require('gulp-concat'),
     minifyCSS = require('gulp-minify-css'),
+    sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch'),
     bower_components = 'bower_components',
@@ -9,11 +9,7 @@ var gulp = require('gulp'),
 
 gulp.task('css', function(){
     return gulp.src('assets/sass/*.scss')
-        .pipe(compass({
-            sass: 'assets/sass',
-            css: 'public/stylesheets',
-            import_path: 'bower_components'
-        }))
+        .pipe(sass())
         .pipe(concat('style.min.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest('public/stylesheets'));
