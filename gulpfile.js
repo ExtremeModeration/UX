@@ -15,6 +15,11 @@ gulp.task('css', function(){
         .pipe(gulp.dest('public/stylesheets'));
 });
 
+gulp.task('fonts', function(){
+    return gulp.src(bs_assets + '/fonts/bootstrap/*.*')
+        .pipe(gulp.dest('public/fonts'));
+});
+
 gulp.task('js', function(){
     var scriptSrc = [
         bower_components + '/jquery/dist/jquery.js',
@@ -36,7 +41,7 @@ gulp.task('watch', function(){
     gulp.watch('assets/js/**/*.js', ['js']);
 });
 
-var task_dependencies = ['css', 'js'],
+var task_dependencies = ['css', 'fonts', 'js'],
     watch_task_dependencies = task_dependencies.slice(0);
 
 watch_task_dependencies.push('watch');

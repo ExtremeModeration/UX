@@ -1,0 +1,18 @@
+// Created by steve on 2/15/15.
+
+extends layout
+
+block content
+
+   div.page-header
+      h1 #{user.name}
+
+   div.row
+      div.col-xs-12
+         div.list-group
+            a(href='http://twitch.tv/' + user.username, target='_blank').list-group-item
+               div.row
+                  div.col-xs-1
+                     img(src=user.logo, height='64px').responsive-img
+                  div.col-xs-11
+                     h3 on Twitch

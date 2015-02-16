@@ -29,7 +29,15 @@ html
           ul.nav.navbar-nav.navbar-right
             li
               - if (session.user)
-                a(href='/profile') #{session.user.name}
+                li.dropdown
+                  a.dropdown-toggle(data-toggle='dropdown', role='button', aria-expanded='false')
+                    | #{session.user.name}&nbsp;
+                    span.caret
+                  ul.dropdown-menu(role='menu')
+                    li
+                      a(href='/profile') Profile
+                    li
+                      a(href='/logout') Logout
               - else
                 a(href='/twitch/login')
                   img.btn-twitch.twitch-connect(src='http://ttv-api.s3.amazonaws.com/assets/connect_dark.png')
