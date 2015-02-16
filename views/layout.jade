@@ -36,6 +36,10 @@ html
                   ul.dropdown-menu(role='menu')
                     li
                       a(href='/profile') Profile
+                    - if (session.user.role == 'admin')
+                      li
+                        a(href='/admin') Admin
+                    li.divider
                     li
                       a(href='/logout') Logout
               - else

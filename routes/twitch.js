@@ -36,11 +36,11 @@ module.exports = function(router){
                         var user = result.body;
                         user.username = user.name;
                         user.name = user.display_name;
-                        user.password = access_token;
                         api.auth.login(user, function(e, result){
                             if (e) return next(e);
                             user.token = result.body.token;
-                            user._id = result.body._id;
+                            user._id = result.body.user._id;
+                            user.role = result.body.user.role;
                             req.session.user = user;
                             res.redirect('/');
                         });
