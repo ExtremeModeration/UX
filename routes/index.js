@@ -6,4 +6,6 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Welcome!' });
 });
 
+require('./twitch')(router);
+
 module.exports = router;

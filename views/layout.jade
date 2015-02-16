@@ -28,7 +28,11 @@ html
 
           ul.nav.navbar-nav.navbar-right
             li
-              img.btn-twitch.twitch-connect(src='http://ttv-api.s3.amazonaws.com/assets/connect_dark.png')
+              - if (session.user)
+                a(href='/profile') #{session.user.name}
+              - else
+                a(href='/twitch/login')
+                  img.btn-twitch.twitch-connect(src='http://ttv-api.s3.amazonaws.com/assets/connect_dark.png')
     // end navigation
 
     div.container
@@ -36,11 +40,6 @@ html
 
     script.
       var exmo = exmo || {};
-      exmo.twitch = {
-        client: {
-          id: '#{process.env.TWITCH_CLIENT_ID || 'rifk3d0r9wyfutpstcgdeexslirhnci'}'
-        }
-      };
       exmo.app = {
         root: function(){
           var url = window.location.href,
@@ -50,4 +49,3 @@ html
       };
 
     script(src='/javascripts/app.min.js')
-    script(src='https://ttv-api.s3.amazonaws.com/twitch.min.js')

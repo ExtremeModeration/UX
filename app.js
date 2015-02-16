@@ -4,10 +4,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('cookie-session');
 
 var routes = require('./routes/index');
 
 var app = express();
+
+app.set('trust proxy', 1); // trust first proxy
+
+app.use(session({
+    keys: [(process.env.SESSION_KEY1 || 'extreme'), (process.env.SESSION_KEY2 || 'moderation')]
+}));
+
+app.use(function(req,res,next){
+    res.locals.session = req.session;
+    next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
