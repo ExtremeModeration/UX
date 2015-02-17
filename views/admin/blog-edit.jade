@@ -1,0 +1,30 @@
+//
+   Created by steve on 2/16/15.
+
+extends ../layout
+block content
+   div.page-header
+      h1
+         span.small Editing 
+         | #{blog.title}
+      
+   div.row
+      div.col-md-9
+         form(action='/admin/blog/update', method='POST')
+            input(type='hidden', name='_id', value=blog._id)
+            div.form-group
+               label.control-label(for='title') Title
+               input.form-control(type='text', id='title', name='title', required='required', value=blog.title)
+               
+            div.form-group
+               label.control-label(for='body') Body
+               textarea.form-control(name='body', id='body', rows='15') #{blog.body}
+               
+            button.btn.btn-primary(type='submit') Update
+         
+      div.col-md-3
+         ul.nav.nav-pills.nav-stacked
+            - for (var i=0; i < adminNav.length; i++) {
+               li(class=adminNav[i].class)
+                  a(href=adminNav[i].uri) #{adminNav[i].label}
+            - }

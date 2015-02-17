@@ -6,6 +6,8 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Welcome!' });
 });
 
+require('./admin')(router);
+require('./blog')(router);
 require('./profile')(router);
 require('./twitch')(router);
 

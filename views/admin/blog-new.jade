@@ -1,0 +1,22 @@
+//
+   Created by steve on 2/16/15.
+extends ../layout
+block content
+    div.page-header
+       h1 New Blog Post
+    div.row
+        div.col-md-9
+            form(action='/admin/blog/save', method='POST')
+                div.form-group
+                    label.control-label(for='title') Title
+                    input.form-control(type='text', id='title', name='title', required='required')
+                div.form-group
+                    label.control-label(for='body') Body
+                    textarea.form-control(name='body', id='body', rows='15')
+                button.btn.btn-primary(type='submit') Create
+        div.col-md-3
+            ul.nav.nav-pills.nav-stacked
+                - for (var i=0; i < adminNav.length; i++) {
+                   li(class=adminNav[i].class)
+                       a(href=adminNav[i].uri) #{adminNav[i].label}
+                - }

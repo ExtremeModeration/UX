@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
+var md = require('markdown').markdown;
 
 var routes = require('./routes/index');
 
@@ -18,6 +19,7 @@ app.use(session({
 
 app.use(function(req,res,next){
     res.locals.session = req.session;
+    res.locals.md = md;
     next();
 });
 

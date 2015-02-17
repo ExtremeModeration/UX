@@ -7,6 +7,11 @@ function ExtremeModerationAPI() {
     var superagent = require('superagent'),
         root = process.env.API_ROOT || 'http://localhost:3000';
     
+    function handleResponse(e, result, callback) {
+        if (e) callback(e);
+        else callback(null, result.body);
+    }
+    
     function Auth(){
         return {
             login: function(user, callback) {
@@ -18,8 +23,56 @@ function ExtremeModerationAPI() {
         
     }
     
+    function Blog() {
+        return {
+            list: function(callback) {
+                superagent.get(root + '/v1/blogs')
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
+            },
+            
+            get: function(slug, callback) {
+                superagent.get(root + '/v1/blog/with-slug/' + slug)
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
+            },
+            
+            create: function(user, post, callback) {
+                superagent.post(root + '/v1/blog')
+                    .set('x-access-token', user.token)
+                    .set('x-key', user.username)
+                    .send(post)
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
+            },
+            
+            update: function(user, post, callback){
+                superagent.put(root + '/v1/blog/' + post._id)
+                    .set('x-access-token', user.token)
+                    .set('x-key', user.username)
+                    .send(post)
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
+            },
+            
+            del: function(user, post, callback) {
+                superagent.del(root + '/v1/blog/' + post._id)
+                    .set('x-access-token', user.token)
+                    .set('x-key', user.username)
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
+            }
+        };
+    }
+    
     return {
-        auth: new Auth()
+        auth: new Auth(),
+        blog: new Blog()
     };
 }
 
