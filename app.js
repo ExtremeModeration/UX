@@ -34,7 +34,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+var adminValidation = require('./middleware/AdminValidation');
+app.all('/admin', [adminValidation]);
+app.all('/admin/*', [adminValidation]);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
