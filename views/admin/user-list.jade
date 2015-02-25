@@ -9,7 +9,11 @@ block content
 
    div.row
       div.col-md-9
-         p user list goes here!
+         div.list-group
+            - for (var i=0; i < users.length; i++) {
+               a.list-group-item(href='/admin/users/' + users[i]._id) #{users[i].name}&nbsp;
+                  small ( #{users[i].username} )
+            - }
       
       div.col-md-3
          include nav

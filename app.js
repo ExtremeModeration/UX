@@ -20,6 +20,7 @@ app.use(session({
 app.use(function(req,res,next){
     res.locals.session = req.session;
     res.locals.md = md;
+    res.api = require('./services/EMApi');
     next();
 });
 

@@ -70,9 +70,32 @@ function ExtremeModerationAPI() {
         };
     }
     
+    function User() {
+        return {
+            list: function(user, callback){
+                superagent.get(root + '/v1/secure/users')
+                    .set('x-access-token', user.token)
+                    .set('x-key', user.username)
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
+            },
+            
+            get: function(user, user_id, callback) {
+                superagent.get(root + '/v1/secure/user/' + user_id)
+                    .set('x-access-token', user.token)
+                    .set('x-key', user.username)
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
+            }
+        };
+    }
+    
     return {
         auth: new Auth(),
-        blog: new Blog()
+        blog: new Blog(),
+        user: new User()
     };
 }
 
