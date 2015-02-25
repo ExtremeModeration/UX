@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-var adminValidation = require('./middleware/AdminValidation');
+var adminValidation = require('./middleware/Admin');
 app.all('/admin', [adminValidation]);
 app.all('/admin/*', [adminValidation]);
 app.use('/', routes);

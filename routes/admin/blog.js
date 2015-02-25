@@ -2,8 +2,7 @@
  * Created by steve on 2/16/15.
  */
 
-var adminService = require('../../services/Admin'),
-    api = require('../../services/EMApi');
+var api = require('../../services/EMApi');
 
 module.exports = function(router){
     
@@ -11,16 +10,13 @@ module.exports = function(router){
         api.blog.list(function(e, blogs){
             if (e) return next(e);
             res.render('admin/blog', {
-                adminNav: adminService.adminNav(req),
                 blogs: blogs
             }); 
         });
     });
     
     router.get('/admin/blog/new', function(req, res){
-        res.render('admin/blog-new', {
-            adminNav: adminService.adminNav(req)
-        });
+        res.render('admin/blog-new', {});
     });
     
     router.post('/admin/blog/save', function(req, res, next){
@@ -39,7 +35,6 @@ module.exports = function(router){
         api.blog.get(req.params.slug, function(e, blog){
             if (e) return next(e);
             res.render('admin/blog-edit', {
-                adminNav: adminService.adminNav(req),
                 blog: blog
             });
         })

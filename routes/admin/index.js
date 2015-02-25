@@ -8,7 +8,7 @@ module.exports = function(router){
     require('./user')(router);
 
     router.get('/admin', function(req, res){
-        res.render('admin/index', {adminNav: adminService.adminNav(req)});
+        res.render('admin/index', {});
     });
     
     return router;

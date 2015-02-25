@@ -9,6 +9,8 @@ module.exports = function(req, res, next) {
         res.status(403);
         res.render('403', {});
     } else {
+        // add the admin navs to the response so they are available to jade
+        res.locals.adminNav = require('../services/Admin').adminNav(req);
         next();
     }
 };

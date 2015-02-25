@@ -8,6 +8,7 @@ router.get('/', function(req, res) {
 
 require('./admin')(router);
 require('./blog')(router);
+require('./forums')(router);
 require('./profile')(router);
 require('./twitch')(router);
 
