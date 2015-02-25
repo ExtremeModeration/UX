@@ -5,7 +5,8 @@ var adminService = require('../../services/Admin');
 
 module.exports = function(router){
     require('./blog')(router);
-    
+    require('./user')(router);
+
     router.get('/admin', function(req, res){
         res.render('admin/index', {adminNav: adminService.adminNav(req)});
     });

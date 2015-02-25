@@ -1,0 +1,8 @@
+//
+   Created by steve on 2/23/15.
+
+ul.nav.nav-pills.nav-stacked
+   - for (var i=0; i < adminNav.length; i++) {
+      li(class=adminNav[i].class)
+         a(href=adminNav[i].uri) #{adminNav[i].label}
+   - }

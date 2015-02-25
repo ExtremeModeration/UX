@@ -15,8 +15,4 @@ block content
                     textarea.form-control(name='body', id='body', rows='15')
                 button.btn.btn-primary(type='submit') Create
         div.col-md-3
-            ul.nav.nav-pills.nav-stacked
-                - for (var i=0; i < adminNav.length; i++) {
-                   li(class=adminNav[i].class)
-                       a(href=adminNav[i].uri) #{adminNav[i].label}
-                - }
+            include nav
