@@ -88,6 +88,16 @@ function ExtremeModerationAPI() {
                     .end(function(e, result){
                         handleResponse(e, result, callback);
                     });
+            },
+            
+            update: function(user, user_to_update, callback) {
+                superagent.put(root + '/v1/secure/user/' + user_to_update._id)
+                    .set('x-access-token', user.token)
+                    .set('x-key', user.username)
+                    .send(user_to_update)
+                    .end(function(e, result){
+                        handleResponse(e, result, callback);
+                    });
             }
         };
     }

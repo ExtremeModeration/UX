@@ -24,7 +24,7 @@ gulp.task('js', function(){
     var scriptSrc = [
         bower_components + '/jquery/dist/jquery.js',
         bs_assets + '/javascripts/bootstrap.js',
-        'assets/js/app.js'
+        'assets/js/**/*.js'
     ];
 
     return gulp.src(scriptSrc)

@@ -19,5 +19,29 @@ module.exports = function(router){
         });
     });
     
+    router.put('/admin/users/:id', function(req, res, next){
+        res.api.user.get(req.session.user, req.params.id, function(e, user){
+            if (e) return next(e);
+            
+            if (req.session.user._id === req.params.id) {
+                res.status(500);
+                res.send({message: 'cannot update self'});
+                return;
+            }
+            
+            if (req.body.role === '') req.body.role = null;
+            if (req.body.role !== 'admin' && req.body.role !== null) {
+                req.body.role = user.role;
+            }
+            
+            user.role = req.body.role;
+            
+            res.api.user.update(req.session.user, user, function(e, result){
+                if (e) return next(e);
+                res.send(result);
+            });
+        });
+    });
+    
     return router;
 };

@@ -11,7 +11,10 @@ block content
       div.col-md-9
          div.list-group
             - for (var i=0; i < users.length; i++) {
-               a.list-group-item(href='/admin/users/' + users[i]._id) #{users[i].name}&nbsp;
+               a(
+                  href='/admin/users/' + users[i]._id,
+                  class='list-group-item ' + (users[i].role && users[i].role === 'admin' ? 'list-group-item-info' : '')
+               ) #{users[i].name}&nbsp;
                   small ( #{users[i].username} )
             - }
       

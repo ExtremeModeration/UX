@@ -4,10 +4,47 @@
 extends ../layout
 
 block content
-    div.page-header
-        h1 #{user.name}
         
-    div.row
+    div.row.user-profile-wrapper
         div.col-md-9
+            div.jumbotron.user-profile-card
+                div.row
+                    - if (user.logo && user.logo !== '') {
+                        div.col-md-2
+                            a(href='http://twitch.tv/' + user.username, target='_blank')
+                                img(src=user.logo).img-responsive.img-thumbnail
+                    - }
+                    div.col-md-10
+                        a(href='http://twitch.tv/' + user.username, target='_blank')
+                            h2 #{user.name}
+                hr
+                div.row
+                    div.col-md-2
+                        strong.pull-right Username
+                    div.col-md-10
+                        a(href='http://twitch.tv/' + user.username, target='_blank')
+                            | #{user.username}
+                            
+                hr
+                div.row
+                    div.col-md-2
+                        strong.pull-right Email
+                    div.col-md-10
+                        a(href='mailto:' + user.email)
+                            | #{user.email}
+                
+                hr
+                div.row
+                    div.col-md-2
+                        strong.pull-right Admin
+                    div.col-md-10
+                        a#adminIcon(href='#', data-userid=user._id)
+                            - if (user.role && user.role.toLowerCase() === 'admin') {
+                                i.glyphicon.glyphicon-ok
+                            - } else {
+                                i.glyphicon.glyphicon-remove
+                            - }
+                        
+        
         div.col-md-3
             include nav
