@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/gulp production",
+    "postinstall": "bower install && gulp production",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -28,6 +28,6 @@
     "gulp-watch": "^3.0.0"
   },
   "devDependencies": {
-    
+
   }
 }
