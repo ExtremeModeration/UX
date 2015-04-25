@@ -42,3 +42,4 @@
 /.sass-cache/
 *.log
 /public/
+.env

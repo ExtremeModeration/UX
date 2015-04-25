@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
+    bower = require('gulp-bower'),
     concat = require('gulp-concat'),
     minifyCSS = require('gulp-minify-css'),
+    nodemon = require('gulp-nodemon'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch'),
@@ -41,10 +43,19 @@ gulp.task('watch', function(){
     gulp.watch('assets/js/**/*.js', ['js']);
 });
 
+gulp.task('bower', function(){
+    bower({cmd: 'install'});
+});
+
 var task_dependencies = ['css', 'fonts', 'js'],
     watch_task_dependencies = task_dependencies.slice(0);
 
 watch_task_dependencies.push('watch');
 
+gulp.task('start', watch_task_dependencies, function(){
+    nodemon({
+        script: 'bin/www'
+    });
+});
 gulp.task('production', task_dependencies);
 gulp.task('default', watch_task_dependencies);
