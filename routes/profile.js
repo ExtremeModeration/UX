@@ -11,7 +11,9 @@ module.exports = function(router){
             return;
         }
         
-        res.render('profile', {user: user});
+        res.api.viewer.getViewerPoints(user, user.username, function(viewer){
+            res.render('profile', {user: user, viewer: viewer});
+        })
     });
     
     router.get('/logout', function(req, res){
