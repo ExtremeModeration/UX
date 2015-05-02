@@ -101,11 +101,28 @@ function ExtremeModerationAPI() {
             }
         };
     }
+
+    function Viewer() {
+        function getViewerPoints(user, nick, callback) {
+            superagent.get(root + '/v1/viewers/' + nick)
+                .set('x-access-token', user.token)
+                .set('x-key', user.username)
+                .end(function(e, result){
+                    if (e) return console.error(e);
+                    callback(result.body);
+                });
+        }
+
+        return {
+            getViewerPoints: getViewerPoints
+        };
+    }
     
     return {
         auth: new Auth(),
         blog: new Blog(),
-        user: new User()
+        user: new User(),
+        viewer: new Viewer()
     };
 }
 

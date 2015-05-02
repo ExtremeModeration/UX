@@ -15,7 +15,9 @@ module.exports = function(router){
         var user_id = req.params.id;
         res.api.user.get(req.session.user, user_id, function(e, user){
             if (e) return next(e);
-            res.render('admin/user-edit', {user: user});
+            res.api.viewer.getViewerPoints(req.session.user, user.username, function(viewer){
+                res.render('admin/user-edit', {user: user, viewer: viewer});
+            });
         });
     });
     
