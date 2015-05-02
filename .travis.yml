@@ -2,21 +2,21 @@ language: node_js
 branches:
   only:
     - master
-deploy:
-  edge: true
-  provider: cloudfoundry
-  api: $CF_API
-  username: $CF_USERNAME
-  password: $CF_PASSWORD
-  organization: $CF_ORG
-  space: $CF_SPACE
+# deploy:
+#   edge: true
+#   provider: cloudfoundry
+#   api: $CF_API
+#   username: $CF_USERNAME
+#   password: $CF_PASSWORD
+#   organization: $CF_ORG
+#   space: $CF_SPACE
 node_js:
   - "0.10.35"
 notifications:
   email:
     recipients:
       - extrememoderationtv@gmail.com
-before_install:
-  - gem update --system
-  - gem install compass
+# before_install:
+#   - gem update --system
+#   - gem install compass
 script: npm test && gulp production
