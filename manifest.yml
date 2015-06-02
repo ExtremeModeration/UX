@@ -4,5 +4,3 @@ applications:
   buildpack: nodejs_buildpack
   memory: 256m
   instances: 2
-  services:
-  - new_relic
